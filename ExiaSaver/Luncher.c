@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <time.h>
 #include "random.h"
-#include "mode_static.c"
-#include "mode_dynamique.c"
-#include "mode_interactive.c"
+//#include "mode_static.c"
+//#include "mode_dynamique.c"
+//#include "mode_interactive.c"
 
 
 
@@ -25,9 +25,10 @@ int main(void){
   switch (number){
 
     case 1:
-      srand(time(NULL));
+      system("./mode_static");
+      //srand(time(NULL));
       //nombre=nombre_aleatoir()%6+1;
-      mode_static();
+      //mode_static();
       //system("./mode_static")
       //printf("1\n");
       //printf("Launcher n°%d\n",number);
@@ -35,13 +36,14 @@ int main(void){
     break;
 
     case 2:
-      mode_dynamique();
+      system("./mode_dynamique");
+    //  mode_dynamique();
       //printf("2\n");
       //printf("Launcher n°%d\n",number);
     break;
 
     case 3:
-      mode_interactive();
+      //mode_interactive();
       //printf("3\n");
       //printf("Launcher n°%d\n",number);
     break;

@@ -2,10 +2,11 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 
-void mode_dynamique()
+void main()
 {
 //char prompt[256] ;
 char commande[256];
