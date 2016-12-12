@@ -14,13 +14,15 @@ int unitesecondes = 0;
 int valeuractuelle = 0;
 int main(void){
 
+  system("clear");
+
 
   time_t secondes;
 
   time(&secondes);
   instant=*localtime(&secondes);
 
-  //printf("%d:%d:%d \n", instant. , instant.tm_min, instant.tm_sec);
+  printf("%d:%d:%d \n", instant.tm_hour , instant.tm_min, instant.tm_sec);
   //sleep(1);
 
   decouperheures(instant);
@@ -29,30 +31,34 @@ int main(void){
 
   for (i ; i < 8; i++)
   {
-    if (i == 1)
+    if (i == 0)
     { valeuractuelle = dizaineheure;}
-    else if (i == 2)
+    else if (i == 1)
     { valeuractuelle = uniteheure;}
-    else if (i == 3)
+    else if (i == 2)
     { valeuractuelle = 29;}
-    else if ( i == 4)
+    else if ( i == 3)
     { valeuractuelle = dizaineminutes;}
-    else if ( i == 5)
+    else if ( i == 4)
     { valeuractuelle = uniteminutes;}
-    else if (i == 6)
+    else if (i == 5)
     { valeuractuelle = 29;}
-    else if ( i == 7)
+    else if ( i == 6)
     { valeuractuelle = dizainesecondes;}
-    else if ( i == 8)
+    else if ( i == 7)
     { valeuractuelle = unitesecondes;}
 
-for (j; j < 8; j++)
-{
+
   FILE* fichier = NULL;
   char  caractere;
 
+//printf("%d ", valeuractuelle);
   switch(valeuractuelle)
   {
+  case 0 :
+  fichier = fopen("/home/bantoine/Images/zéro.pbm", "r" ); //OUVRE LE FICHIER
+  break;
+
   case 1 :
   fichier = fopen("/home/bantoine/Images/un.pbm", "r" ); //OUVRE LE FICHIER
   break;
@@ -78,7 +84,7 @@ for (j; j < 8; j++)
   break;
 
   case 7 :
-  fichier = fopen("/home/bantoine/Images/un.pbm", "r" ); //OUVRE LE FICHIER
+  fichier = fopen("/home/bantoine/Images/sept.pbm", "r" ); //OUVRE LE FICHIER
   break;
 
   case 8 :
@@ -96,7 +102,7 @@ default :
 
 if (fichier != NULL){
  //system("clear");
-  fseek(fichier, 19, SEEK_SET);
+  fseek(fichier, 18, SEEK_SET);
 
   do{
     caractere = fgetc(fichier);
@@ -113,8 +119,10 @@ if (fichier != NULL){
       caractere = 'X';
     }
     printf("%c", caractere);
+
   }while(caractere != EOF);
   //fclose(fichier);
+
 }
 else {
 
@@ -122,7 +130,8 @@ else {
 
 }
 fclose (fichier);
-}
+//int c = getchar();
+//if (c != 0) {exit;}
 }
 /*printf("Le nombre des unités des heures est %d \n", uniteheure);
 printf("Le nombre de dizaine de minutes est %d \n", dizaineminutes);
