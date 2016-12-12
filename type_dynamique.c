@@ -13,10 +13,10 @@ int dizainesecondes = 0;
 int unitesecondes = 0;
 int valeuractuelle = 0;
 int main(void){
-
+  int c,v =0;
   system("clear");
 
-
+  char tableau[4][30] = {0};
   time_t secondes;
 
   time(&secondes);
@@ -28,7 +28,8 @@ int main(void){
   decouperheures(instant);
   int i=0;
   int j = 0;
-
+  int l ;
+int k =0;
   for (i ; i < 8; i++)
   {
     if (i == 0)
@@ -105,31 +106,68 @@ if (fichier != NULL){
   fseek(fichier, 18, SEEK_SET);
 
   do{
+    for (k = 0; k < 30; k++){
+    v = 0;
+    //c++;
+    for (l = 0; l < 3; l++){
     caractere = fgetc(fichier);
     if ( caractere == '0')
     {
-      caractere = ' ';
+
+    caractere = ' ';
+     tableau[c][v] = caractere;
+      v++;
     }
-    else if ( caractere == ' ')
+   else if ( caractere == ' ')
     {
       caractere = ' ';
+      tableau[c][v] = caractere;
+      v++;
     }
     else if ( caractere == '1')
     {
       caractere = 'X';
+      tableau[c][v] = caractere;
+    v++;
     }
     printf("%c", caractere);
 
+  }
+//v = 0;
+c++;
+}
   }while(caractere != EOF);
   //fclose(fichier);
 
 }
+
 else {
 
   printf("Le fichier ne peut pas être ouvert \n");
 
 }
-fclose (fichier);
+
+//printf("%c", tableau[0][1]);
+
+/*int n;
+int m ;
+for (n = 0 ; n < 31; n++)
+{
+
+
+    for (m = 0 ; m < 5; m++)
+    {
+      printf("%c", tableau[m][n]);
+
+
+    }
+
+}
+printf("\n");*/
+
+
+
+//fclose (fichier);
 //int c = getchar();
 //if (c != 0) {exit;}
 }
