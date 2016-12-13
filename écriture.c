@@ -12,5 +12,9 @@ int main(int argc, char *argv[])
     fprintf(fichier, "0 1 0\n1 1 0\n0 1 0\n0 1 0\n0 1 0\n1 1 1\n0 0 1\n1 1 1\n1 0 0\n1 1 1");
     fclose(fichier);
   }
+  else
+  {
+    printf("Impossible d'ouvrir le fichier fichier_tampon.txt");
+  }
   return 0;
 }
