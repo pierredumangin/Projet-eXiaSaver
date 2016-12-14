@@ -33,8 +33,9 @@ char  caractere;
 int main(void){
 
 int u =1;
+system("clear");
 while(u == 1){
-  //system("clear");
+
   int i = 0;
 
   time_t secondes;
@@ -2264,7 +2265,7 @@ else if (unitesecondes == 9)
 
 printf(" ");
 int e;
-int refreshTime = 10;
+int refreshTime = 1;
 gotoxy(x,y);
 printf("Cet écran va s'actualiser dans quelques secondes" );
 
@@ -2276,7 +2277,9 @@ sleep(1);
  printf(".\n");
  y++;
 }
-
+y=y-refreshTime;
+gotoxy(x, y+47);
+printf("                                           ");
 
 }
 
@@ -2351,14 +2354,14 @@ if (fichier0 != NULL){
    printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+  fclose(fichier0);
 
 //////////////////////////////////////////   NUMERO 1
 
   FILE* fichier1 = NULL;
   fichier1 = fopen("/home/bantoine/Images/1.pbm", "r") ;
   if (fichier1 != NULL){
-   system("clear");
+
     fseek(fichier1, 18, SEEK_SET);
   //  gotoxy(a,b);
    j = 0;
@@ -2400,7 +2403,7 @@ if (fichier0 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
     }
-
+fclose(fichier1);
 ////////////////////////////////////////////////////////// NUMERO 2
 
 
@@ -2449,13 +2452,13 @@ if (fichier2 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier2);
  ///////////////////////////////////////////////////// NUMERO 3
 
  FILE* fichier3 = NULL;
  fichier3 = fopen("/home/bantoine/Images/3.pbm", "r") ;
  if (fichier3 != NULL){
-  //system("clear");
+
    fseek(fichier3, 18, SEEK_SET);
 
   j = 0;
@@ -2496,13 +2499,13 @@ if (fichier2 != NULL){
      printf("Le fichier ne peut pas être ouvert \n");
 
    }
-
+fclose(fichier3);
 ///////////////////////////////////////////////////////// NUMERO 4
 
 FILE* fichier4 = NULL;
 fichier4 = fopen("/home/bantoine/Images/4.pbm", "r") ;
 if (fichier4 != NULL){
- //system("clear");
+
   fseek(fichier4, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2545,13 +2548,13 @@ if (fichier4 != NULL){
 
   }
 
-
+fclose(fichier4);
 //////////////////////////////////////////////////////// NUMERO 5
 
 FILE* fichier5 = NULL;
 fichier5 = fopen("/home/bantoine/Images/5.pbm", "r") ;
 if (fichier5 != NULL){
- //system("clear");
+
   fseek(fichier5, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2592,13 +2595,13 @@ if (fichier5 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier5);
 /////////////////////////////////////////// NUMERO 6
 
 FILE* fichier6 = NULL;
 fichier6 = fopen("/home/bantoine/Images/6.pbm", "r") ;
 if (fichier6 != NULL){
- //system("clear");
+
   fseek(fichier6, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2639,14 +2642,14 @@ if (fichier6 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier6);
 
 //////////////////////////////////////////////// Numero 7
 
 FILE* fichier7 = NULL;
 fichier7 = fopen("/home/bantoine/Images/7.pbm", "r") ;
 if (fichier7 != NULL){
- //system("clear");
+
   fseek(fichier7, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2688,13 +2691,13 @@ if (fichier7 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier7);
 ///////////////////////////////////////////////////////// NUMERO 8
 
 FILE* fichier8 = NULL;
 fichier8 = fopen("/home/bantoine/Images/8.pbm", "r") ;
 if (fichier8 != NULL){
- //system("clear");
+
   fseek(fichier8, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2736,7 +2739,7 @@ if (fichier8 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier8);
 ////////////////////////////////////////////// NUMERO 9
 
 
@@ -2744,7 +2747,7 @@ if (fichier8 != NULL){
 FILE* fichier9 = NULL;
 fichier9 = fopen("/home/bantoine/Images/9.pbm", "r") ;
 if (fichier9 != NULL){
- //system("clear");
+
   fseek(fichier9, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2786,14 +2789,14 @@ if (fichier9 != NULL){
     printf("Le fichier ne peut pas être ouvert \n");
 
   }
-
+fclose(fichier9);
 ///////////////////////////////////////////////////////////////////////// DOUBLE POINT
 
 
 FILE* fichier10 = NULL;
 fichier10 = fopen("/home/bantoine/Images/11.pbm", "r") ;
 if (fichier10 != NULL){
- //system("clear");
+
   fseek(fichier10, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2836,5 +2839,5 @@ if (fichier10 != NULL){
 
   }
 
-
+fclose (fichier10);
 }
