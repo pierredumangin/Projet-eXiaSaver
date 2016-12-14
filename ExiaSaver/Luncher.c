@@ -1,57 +1,74 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <time.h>
+#include <string.h>
 #include "random.h"
-//#include "mode_static.c"
-//#include "mode_dynamique.c"
-//#include "mode_interactive.c"
+#include "historique.c"
+#include "menu_stat.c"
+#include "concat.c"
 
 
-
-//void srand(time(NULL));
-
-//int nombre_aleatoire(void);
+int main(int argc, char *argv[]){
 
 
-int main(void){
+  const char *HOME = "EXIASAVER_HOME";
+  char *Home;
+  Home = getenv(HOME);
+  char* Mode_static = concat(Home, "/mode_static");
+  char* Mode_dynamique = concat(Home, "/mode_dynamique");
 
-  system("cp eco /usr/bin ");
+  if(argc < 2)
+  {
+
+  //system("PATH=$PATH:/home/ryuko/ExiaSaver ");
   system("clear");
-
   srand(time(NULL));
-//  printf("%d\n ", nombre_aleatoire()%3+1);
+  number =nombre_aleatoire()%3+1;
 
-   int number =nombre_aleatoire()%3+1;
-  switch (number){
+
+
+
+
+    switch (number)
+    {
 
     case 1:
-      system("./mode_static");
-      //srand(time(NULL));
-      //nombre=nombre_aleatoir()%6+1;
-      //mode_static();
-      //system("./mode_static")
-      //printf("1\n");
-      //printf("Launcher n°%d\n",number);
-      //printf("Nombre %d\n", nombre);
+      //system("./ExiaSaver_Home/mode_static");//ExiaSaver_Home
+      execl(Mode_static,"mode_static",(char *)NULL);
     break;
 
     case 2:
-      system("./mode_dynamique");
-    //  mode_dynamique();
-      //printf("2\n");
-      //printf("Launcher n°%d\n",number);
+    historique();
+      //system("./ExiaSaver_Home/mode_dynamique");//ExiaSaver_Home
+      execl(Mode_dynamique,"mode_dynamique",(char *)NULL);
     break;
 
     case 3:
-      //mode_interactive();
-      //printf("3\n");
-      //printf("Launcher n°%d\n",number);
+      historique();
+      printf("Launcher n°%d\n",number);//ExiaSaver_Home
     break;
 
+      }
+    }
+
+else if(argc == 2)
+  {
+      if(strcmp(argv[1], "-stat") == 0)
+      {
+      menu_stat(argc, argv);
+      }
+      else
+      {
+      printf("Obtion not found\n");
+
+      }
   }
-
-
-
-
+else
+  {
+  printf("To many arguments, kill the arguments\n");
+  printf("Path Mode_static : %s", Mode_static);
+  printf("Path Mode_dynamique : %s", Mode_dynamique);
+  }
   return (0);
 }

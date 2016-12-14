@@ -9,12 +9,12 @@
 void main()
 {
 //char prompt[256] ;
-char commande[256];
+char commande[256] = "";
 
 
 //strcpy(prompt, "EXIA >");
 *commande = 0 ;
-while (strcmp(commande, "\n") != 0)
+while (strcmp(commande, "") == 0)
 	{
 	//printf(prompt);
 	  printf("Launcher n°2");

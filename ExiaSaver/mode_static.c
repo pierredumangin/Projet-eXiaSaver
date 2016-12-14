@@ -5,6 +5,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include "random.h"
+#include "historique.c"
+
 
 
 #define TAILLE_MAX 1000;
@@ -17,7 +19,7 @@ void printf_center (const char* str);
 
 int main()
 {
-system("clear");
+  system("clear");
   FILE* fichier = NULL;
   char caractere;
   char commande[256];
@@ -28,10 +30,10 @@ system("clear");
   *commande = 0 ;
 
   int repeat=0;
-  int nombre = 0;
   srand(time(NULL));
   for(repeat=0; repeat<2; repeat++){
   nombre=nombre_aleatoire()%3+1;
+
   //printf("nombre %d\n",nombre);
 }
 
@@ -40,9 +42,9 @@ system("clear");
 
   //int nombre= 2;
 
-if(nombre==1){fichier = fopen("chateau.pbm", "r");} // OUVRE LE FICHIER EN LECTURE
-else if(nombre==2){fichier = fopen("fusee.pbm", "r");}
-else if(nombre==3){fichier = fopen("damier.pbm", "r");}
+if(nombre==1){fichier = fopen("chateau.pbm", "r");number=1;historique();} // OUVRE LE FICHIER EN LECTURE
+else if(nombre==2){fichier = fopen("fusee.pbm", "r");number=1;historique();}
+else if(nombre==3){fichier = fopen("damier.pbm", "r");number=1;historique();}
 
 
 
