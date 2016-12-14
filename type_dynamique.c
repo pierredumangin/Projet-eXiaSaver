@@ -1,6 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
 
 struct tm instant;
@@ -24,13 +25,16 @@ char tableau8[30];
 char tableau9[30];
 char tableau0[30];
 char tableau10[30];
+
 void remplirtableau();
 int j = 0;
 char  caractere;
 
 int main(void){
 
-  system("clear");
+int u =1;
+while(u == 1){
+  //system("clear");
   int i = 0;
 
   time_t secondes;
@@ -41,10 +45,10 @@ int main(void){
   int aa;
   int a = 9;
   int b = 15;
-  int x = 14;
+  int x = 18;
   int y = 15;
-  //printf("%d:%d:%d \n", instant.tm_hour , instant.tm_min, instant.tm_sec);
-  //sleep(1);
+
+
 
   decouperheures(instant);
   remplirtableau();
@@ -52,8 +56,11 @@ int main(void){
 ///////////////////////////////////////PEMIERE LIGNE
 
 
-gotoxy(a,b);
+
 ////////////////////////////////// DIZAINES HEURES
+gotoxy(a,b);
+
+
       if (dizaineheure == 0)
       {
         for (aa = 0; aa < 6 ; aa++)
@@ -457,11 +464,12 @@ else if (unitesecondes == 9)
 
 printf(" ");
 
+
 //////////////////////////////////////////// DEUXIEME LIGNE
 
 
 ///////////////////////////////////////////// DIZAINE HEURES
-printf("\n");
+//printf("\n");
 
 
 gotoxy(a+1,b);
@@ -1847,7 +1855,7 @@ printf(" ");
 
 ///////////////////////////////////////////// CINQUIEME LIGNE
 
-////////////////////////////////// DIZAINES HEURES
+///////////////////////////////// DIZAINES HEURES
 
 //printf("\n");
 gotoxy(a+4,b);
@@ -2255,22 +2263,22 @@ else if (unitesecondes == 9)
 }
 
 printf(" ");
-
-//int c = getchar();
-//if (c != 0) {exit;}
-
-/*gotoxy(x, y);
-
+int e;
+int refreshTime = 10;
+gotoxy(x,y);
 printf("Cet écran va s'actualiser dans quelques secondes" );
-int h;
-for (h = 0; h < 10; h++)
-{
-printf(".");
-sleep(1);
 
+for (e = 0; e < refreshTime; e++)
+{
+sleep(1);
+ gotoxy(x,y+48);
+
+ printf(".\n");
+ y++;
 }
 
-*/
+
+}
 
 
 printf("\n");
@@ -2301,7 +2309,7 @@ void remplirtableau()
 FILE* fichier0 = NULL;
 fichier0 = fopen("/home/bantoine/Images/0.pbm", "r") ;
 if (fichier0 != NULL){
- //system("clear");
+
   fseek(fichier0, 18, SEEK_SET);
 //  gotoxy(a,b);
  j = 0;
@@ -2335,8 +2343,7 @@ if (fichier0 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
@@ -2351,7 +2358,7 @@ if (fichier0 != NULL){
   FILE* fichier1 = NULL;
   fichier1 = fopen("/home/bantoine/Images/1.pbm", "r") ;
   if (fichier1 != NULL){
-   //system("clear");
+   system("clear");
     fseek(fichier1, 18, SEEK_SET);
   //  gotoxy(a,b);
    j = 0;
@@ -2385,8 +2392,7 @@ if (fichier0 != NULL){
       }
 
 
-    //  printf("%c", caractere);
-     //b = b+1;
+
     }while(caractere != EOF);
   }
     else {
@@ -2401,9 +2407,9 @@ if (fichier0 != NULL){
 FILE* fichier2 = NULL;
 fichier2 = fopen("/home/bantoine/Images/2.pbm", "r") ;
 if (fichier2 != NULL){
- //system("clear");
+
   fseek(fichier2, 18, SEEK_SET);
-//  gotoxy(a,b);
+
  j = 0;
   do{
 
@@ -2435,8 +2441,7 @@ if (fichier2 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
@@ -2484,8 +2489,6 @@ if (fichier2 != NULL){
      }
 
 
-   //  printf("%c", caractere);
-    //b = b+1;
    }while(caractere != EOF);
  }
    else {
@@ -2582,8 +2585,6 @@ if (fichier5 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
   }while(caractere != EOF);
 }
   else {
@@ -2631,8 +2632,6 @@ if (fichier6 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
   }while(caractere != EOF);
 }
   else {
@@ -2681,8 +2680,7 @@ if (fichier7 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
@@ -2730,8 +2728,7 @@ if (fichier8 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
@@ -2781,8 +2778,7 @@ if (fichier9 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
@@ -2831,8 +2827,7 @@ if (fichier10 != NULL){
     }
 
 
-  //  printf("%c", caractere);
-   //b = b+1;
+
   }while(caractere != EOF);
 }
   else {
