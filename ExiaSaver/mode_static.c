@@ -42,9 +42,9 @@ int main()
 
   //int nombre= 2;
 
-if(nombre==1){fichier = fopen("chateau.pbm", "r");number=1;historique();} // OUVRE LE FICHIER EN LECTURE
-else if(nombre==2){fichier = fopen("fusee.pbm", "r");number=1;historique();}
-else if(nombre==3){fichier = fopen("damier.pbm", "r");number=1;historique();}
+if(nombre==1){fichier = fopen("ExiaSaver1_PBM/chateau.pbm", "r");number=1;historique();} // OUVRE LE FICHIER EN LECTURE
+else if(nombre==2){fichier = fopen("ExiaSaver1_PBM/fusee.pbm", "r");number=1;historique();}
+else if(nombre==3){fichier = fopen("ExiaSaver1_PBM/damier.pbm", "r");number=1;historique();}
 
 
 
