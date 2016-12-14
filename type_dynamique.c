@@ -39,6 +39,10 @@ int main(void){
 
   instant=*localtime(&secondes);
   int aa;
+  int a = 9;
+  int b = 15;
+  int x = 14;
+  int y = 15;
   //printf("%d:%d:%d \n", instant.tm_hour , instant.tm_min, instant.tm_sec);
   //sleep(1);
 
@@ -47,6 +51,8 @@ int main(void){
 
 ///////////////////////////////////////PEMIERE LIGNE
 
+
+gotoxy(a,b);
 ////////////////////////////////// DIZAINES HEURES
       if (dizaineheure == 0)
       {
@@ -452,8 +458,13 @@ else if (unitesecondes == 9)
 printf(" ");
 
 //////////////////////////////////////////// DEUXIEME LIGNE
+
+
+///////////////////////////////////////////// DIZAINE HEURES
 printf("\n");
 
+
+gotoxy(a+1,b);
 if (dizaineheure == 0)
 {
   for (aa = 6; aa < 12 ; aa++)
@@ -913,7 +924,9 @@ printf(" ");
 
 ////////////////////////////////////////////////  TROISIEME LIGNE
 
-printf("\n");
+
+gotoxy(a+2,b);
+//printf("\n");
 
 if (dizaineheure == 0)
 {
@@ -1373,7 +1386,8 @@ printf(" ");
 
 ////////////////////////////////////////// QUATRIEME LIGNE
 
-printf("\n");
+//printf("\n");
+gotoxy(a+3,b);
 
 if (dizaineheure == 0)
 {
@@ -1835,7 +1849,8 @@ printf(" ");
 
 ////////////////////////////////// DIZAINES HEURES
 
-printf("\n");
+//printf("\n");
+gotoxy(a+4,b);
 printf(" ");
 
       if (dizaineheure == 0)
@@ -2244,9 +2259,18 @@ printf(" ");
 //int c = getchar();
 //if (c != 0) {exit;}
 
+/*gotoxy(x, y);
 
+printf("Cet écran va s'actualiser dans quelques secondes" );
+int h;
+for (h = 0; h < 10; h++)
+{
+printf(".");
+sleep(1);
 
+}
 
+*/
 
 
 printf("\n");
