@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int number;
+int number; // les variables a enregistrer dans l'historique
 int nombre;
 
 int historique()

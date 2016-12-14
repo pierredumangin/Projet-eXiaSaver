@@ -24,11 +24,11 @@
 int main(int argc, char *argv[]){
 
 
-  const char *HOME = "EXIASAVER_HOME";                       //
+  const char *HOME = "EXIASAVER_HOME";                       //Création des string contenant les variables d'environnement pour les exécutable avec la fonction concat.c
   char *Home;                                                //
-  Home = getenv(HOME);                                       //  Création des variables d'environnement pour les exécutable
-  char* Mode_static = concat(Home, "/mode_static");          //
-  char* Mode_dynamique = concat(Home, "/mode_dynamique");    //
+  Home = getenv(HOME);                                       //     Pour créer les variables d'environnement aller dans la console, passer en root tapez ce qui suit:
+  char* Mode_static = concat(Home, "/mode_static");          //           export leNomDeLaVariable=unevaleur ; puis export leNomDeLaVariable=leCheminDuDossier ;
+  char* Mode_dynamique = concat(Home, "/mode_dynamique");    //   puis echo 'export leNomDeLaVariable=leCheminDuDossier' >> /home/user/.bashrc pour la rendre permanente!
   char* Mode_interactive = concat(Home, "/mode_interactive");//
 
 
