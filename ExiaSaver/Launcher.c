@@ -1,14 +1,16 @@
 /* ************************************************************************** */
+/*                               __       __ __	  _____                       */
+/*                              |    \  /   |    |     |                      */
+/*       Launcher.c             |__   \/    |    |_____|                      */
+/*                              |     /\    |    |     |                      */
+/*                              |__  /  \ __|__  |     |                      */
+/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*                                                                            */
-/*   Launcher.c                                      __       __ __	          */
-/*                                                  |    \  /   |       /\    */
-/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
-/*                                                  |     /\    |     /____\  */
-/*   Created: 2016/12/08 by FlorianXeifer           |__  /  \ __|__  /      \ */
-/*   Updated: 2016/12/14 by FlorianXeifer                                     */
+/*       Created: 2016/12/08 by FlorianXeifer                                 */
+/*       Updated: 2016/12/14 by FlorianXeifer                                 */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <stdlib.h>
 #include <stdio.h>

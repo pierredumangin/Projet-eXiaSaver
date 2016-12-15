@@ -1,12 +1,13 @@
 /* ************************************************************************** */
+/*                               __       __ __	  _____                       */
+/*                              |    \  /   |    |     |                      */
+/*      concat.c                |__   \/    |    |_____|                      */
+/*                              |     /\    |    |     |                      */
+/*                              |__  /  \ __|__  |     |                      */
+/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*                                                                            */
-/*   concat.c                                        __       __ __	          */
-/*                                                  |    \  /   |       /\    */
-/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
-/*                                                  |     /\    |     /____\  */
-/*   Created: 2016/12/13 by FlorianXeifer           |__  /  \ __|__  /      \ */
-/*   Updated: 2016/12/14 by FlorianXeifer                                     */
+/*       Created: 2016/12/13 by FlorianXeifer                                 */
+/*       Updated: 2016/12/14 by FlorianXeifer                                 */
 /*                                                                            */
 /* ************************************************************************** */
 

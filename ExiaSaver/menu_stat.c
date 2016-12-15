@@ -1,12 +1,13 @@
 /* ************************************************************************** */
+/*                               __       __ __	  _____                       */
+/*                              |    \  /   |    |     |                      */
+/*       menu_stat.c            |__   \/    |    |_____|                      */
+/*                              |     /\    |    |     |                      */
+/*                              |__  /  \ __|__  |     |                      */
+/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*                                                                            */
-/*   menu_stat.c                                     __       __ __	          */
-/*                                                  |    \  /   |       /\    */
-/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
-/*                                                  |     /\    |     /____\  */
-/*   Created: 2016/12/13 by FlorianXeifer           |__  /  \ __|__  /      \ */
-/*   Updated: 2016/12/14 by FlorianXeifer                                     */
+/*       Created: 2016/12/13 by FlorianXeifer                                 */
+/*       Updated: 2016/12/14 by FlorianXeifer                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +20,7 @@ int menu_stat(int argc, char *argv[])
 {
 
   FILE *f;
+  int nombre1=0;
   int imagenum;
   char line[2000];
   int ret2;
@@ -89,8 +91,14 @@ int menu_stat(int argc, char *argv[])
 
               for (i = 0 ; i < allLignes ; i++)         //
               {                                         //Lit le fichier ligne par ligne et remplis le tableau
+                printf("i%d=", i);
                 fscanf(f, "%i", &all[i]);               //
-              }                                         //
+                printf("%d ", all[i]);
+                printf(" %d \n", nombre1);
+                if (all[i] == 1){nombre1++;}
+
+              }
+              printf("Nombre de 1 : %d ", nombre1);                          //
                 printf("\n");                           //
 
               printf("Les nombre sont :\n");

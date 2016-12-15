@@ -1,12 +1,13 @@
 /* ************************************************************************** */
+/*                               __       __ __	  _____                       */
+/*                              |    \  /   |    |     |                      */
+/*       historique.c           |__   \/    |    |_____|                      */
+/*                              |     /\    |    |     |                      */
+/*                              |__  /  \ __|__  |     |                      */
+/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*                                                                            */
-/*   historique.c                                    __       __ __	          */
-/*                                                  |    \  /   |       /\    */
-/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
-/*                                                  |     /\    |     /____\  */
-/*   Created: 2016/12/12 by FlorianXeifer           |__  /  \ __|__  /      \ */
-/*   Updated: 2016/12/14 by FlorianXeifer                                     */
+/*       Created: 2016/12/12 by FlorianXeifer                                 */
+/*       Updated: 2016/12/14 by FlorianXeifer                                 */
 /*                                                                            */
 /* ************************************************************************** */
 

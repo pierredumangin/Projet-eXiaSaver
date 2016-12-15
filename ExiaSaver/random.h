@@ -1,12 +1,13 @@
 /* ************************************************************************** */
+/*                               __       __ __	  _____                       */
+/*                              |    \  /   |    |     |                      */
+/*       random.h               |__   \/    |    |_____|                      */
+/*                              |     /\    |    |     |                      */
+/*                              |__  /  \ __|__  |     |                      */
+/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*                                                                            */
-/*   random.h                                        __       __ __	          */
-/*                                                  |    \  /   |       /\    */
-/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
-/*                                                  |     /\    |     /____\  */
-/*   Created: 2016/12/08 by FlorianXeifer           |__  /  \ __|__  /      \ */
-/*   Updated: 2016/12/08 by FlorianXeifer                                     */
+/*       Created: 2016/12/08 by FlorianXeifer                                 */
+/*       Updated: 2016/12/08 by FlorianXeifer                                 */
 /*                                                                            */
 /* ************************************************************************** */
 
