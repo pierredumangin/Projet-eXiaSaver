@@ -2,28 +2,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
+#include <string.h>
+#define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))    //permet de placer le curseur dans le terminal
+#include "concat.c"
 
-struct tm instant;
-int decouperheures(struct tm instant);
+struct tm instant; // structure qui contiendra les valeurs des heures, minutes secondes
+int decouperheures(struct tm instant); // structure qui va stocker dans les valeurs suivantes les valeurs des dizaines d'heures quelques part
 int dizaineheure = 0;
 int uniteheure = 0;
 int dizaineminutes = 0;
 int uniteminutes = 0;
 int dizainesecondes = 0;
 int unitesecondes = 0;
+char tableau[11][30];  // tableau qui contient tout les tableaux contenant les caractères des chiffres
 
-
-char tableau[11][30];
-void remplirtableau();
 int j = 0;
-char  caractere;
+char caractere;
 
-int main(void){
+
+int main(){
+
+
+  const char *PBM2 = "EXIASAVER2_PBM";
+  char *PBm2;
+  PBm2 = getenv(PBM2);
+
+
 
 int u =1;
 system("clear");
-remplirtableau();
+remplirtableau(PBm2);
 
 while(u == 1){
 
@@ -36,18 +44,14 @@ while(u == 1){
   instant=*localtime(&secondes);
   int aa;
   int a = 9;
-  int b = 15;
+  int b = 14;
   int x = 18;
   int y = 15;
-
-
 
   decouperheures(instant);
 
 
 ///////////////////////////////////////PEMIERE LIGNE
-
-
 
 ////////////////////////////////// DIZAINES HEURES
 gotoxy(a,b);
@@ -88,8 +92,6 @@ printf(" "); // on ajoute un espace pour espacer les chiffres
     printf("%c", tableau[dizaineminutes][aa]);
   }
 
-
-
 printf(" ");
 /////////////////////////////////// UNITES MINUTES
 
@@ -99,8 +101,6 @@ printf(" ");
   {
     printf("%c", tableau[uniteminutes][aa]);
   }
-
-
 
 printf(" ");
 
@@ -120,20 +120,14 @@ printf(" ");
     printf("%c", tableau[dizainesecondes][aa]);
   }
 
-
-
 printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
-
-
 
   for (aa = 0; aa < 6 ; aa++)
   {
     printf("%c", tableau[unitesecondes][aa]);
   }
-
-
 printf(" ");
 
 
@@ -156,12 +150,10 @@ printf(" ");
 
 ////////////////////////////////////// UNITES HEURES
 
-
   for (aa = 6; aa < 12 ; aa++)
   {
     printf("%c", tableau[uniteheure][aa]);
   }
-
 
 printf(" ");
 
@@ -182,7 +174,6 @@ for (aa = 6; aa < 12 ; aa++)
 printf("%c", tableau[dizaineminutes][aa]);
 }
 
-
 printf(" ");
 /////////////////////////////////// UNITES MINUTES
 
@@ -192,7 +183,6 @@ for (aa = 6; aa < 12 ; aa++)
 {
 printf("%c", tableau[uniteminutes][aa]);
 }
-
 
 printf(" ");
 
@@ -206,36 +196,26 @@ printf(" ");
 
 //////////////////////////////////////////// DIZAINE secondes
 
-
 for (aa = 6; aa < 12 ; aa++)
 {
 printf("%c", tableau[dizainesecondes][aa]);
 }
 
-
-
 printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
-
-
 
 for (aa = 6; aa < 12 ; aa++)
 {
 printf("%c", tableau[unitesecondes][aa]);
 }
 
-
-
 printf(" ");
-
 
 ////////////////////////////////////////////////  TROISIEME LIGNE
 
 ////////////////////////////////////////////////  DIZAINE HEURES
 gotoxy(a+2,b);
-
-
 
   for (aa = 12; aa < 18 ; aa++)
   {
@@ -243,7 +223,6 @@ gotoxy(a+2,b);
   }
 
 printf(" ");
-
 
 ////////////////////////////////////// UNITES HEURES
 
@@ -265,13 +244,10 @@ printf(" ");
 
 //////////////////////////////////////////// DIZAINE MINUTES
 
-
 for (aa = 12; aa < 18 ; aa++)
 {
 printf("%c", tableau[dizaineminutes][aa]);
 }
-
-
 
 printf(" ");
 /////////////////////////////////// UNITES MINUTES
@@ -281,7 +257,6 @@ for (aa = 12; aa < 18 ; aa++)
 {
 printf("%c", tableau[uniteminutes][aa]);
 }
-
 
 printf(" ");
 
@@ -294,26 +269,20 @@ printf("%c", tableau[10][aa]);
 printf(" ");
 
 //////////////////////////////////////////// DIZAINE secondes
-
-
+//fonction(int a;int b; int dizainesecondes);
 for (aa = 12; aa < 18 ; aa++)
 {
 printf("%c", tableau[dizainesecondes][aa]);
 }
 
-
 printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
-
-
 
 for (aa = 12; aa < 18 ; aa++)
 {
 printf("%c", tableau[unitesecondes][aa]);
 }
-
-
 
 printf(" ");
 
@@ -323,7 +292,6 @@ printf(" ");
 
 gotoxy(a+3,b);
 
-
   for (aa = 18; aa < 24 ; aa++)
   {
     printf("%c", tableau[dizaineheure][aa]);
@@ -339,8 +307,6 @@ printf(" ");
   {
     printf("%c", tableau[uniteheure][aa]);
   }
-
-
 printf(" ");
 
 /////////////////////////////////////////// DOUBLE POINT
@@ -359,8 +325,6 @@ for (aa = 18; aa < 24 ; aa++)
 printf("%c", tableau[dizaineminutes][aa]);
 }
 
-
-
 printf(" ");
 /////////////////////////////////// UNITES MINUTES
 
@@ -369,8 +333,6 @@ for (aa = 18; aa < 24 ; aa++)
 {
 printf("%c", tableau[uniteminutes][aa]);
 }
-
-
 
 printf(" ");
 
@@ -390,7 +352,6 @@ for (aa = 18; aa < 24 ; aa++)
 printf("%c", tableau[dizainesecondes][aa]);
 }
 
-
 printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
@@ -402,8 +363,6 @@ for (aa = 18; aa < 24 ; aa++)
 printf("%c", tableau[unitesecondes][aa]);
 }
 
-
-
 printf(" ");
 
 ///////////////////////////////////////////// CINQUIEME LIGNE
@@ -412,10 +371,8 @@ printf(" ");
 
 
 gotoxy(a+4,b);
-printf(" ");
 
-
-        for (aa = 25; aa < 30 ; aa++)
+        for (aa = 24; aa < 30 ; aa++)
         {
           printf("%c", tableau[dizaineheure][aa]);
         }
@@ -430,8 +387,6 @@ printf(" ");
         {
           printf("%c", tableau[uniteheure][aa]);
         }
-
-
       printf(" ");
 
 /////////////////////////////////////////// DOUBLE POINT
@@ -450,10 +405,6 @@ printf(" ");
     printf("%c", tableau[dizaineminutes][aa]);
   }
 
-
-
-
-
 printf(" ");
 /////////////////////////////////// UNITES MINUTES
 
@@ -462,8 +413,6 @@ printf(" ");
   {
     printf("%c", tableau[uniteminutes][aa]);
   }
-
-
 
 printf(" ");
 
@@ -477,27 +426,20 @@ printf(" ");
 
 //////////////////////////////////////////// DIZAINE secondes
 
-
   for (aa = 24; aa < 30 ; aa++)
   {
     printf("%c", tableau[dizainesecondes][aa]);
   }
-
-
-
 
 printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
 
 
-
 for (aa = 24; aa < 30 ; aa++)
   {
     printf("%c", tableau[unitesecondes][aa]);
   }
-
-
 
 printf(" ");
 int e;
@@ -517,10 +459,12 @@ y=y-refreshTime;
 gotoxy(x, y+47);
 printf("                                           ");
 
+
 }
 
-
 printf("\n");
+
+
 return 0;
 
 }
@@ -537,18 +481,29 @@ unitesecondes = (instant.tm_sec)-(dizainesecondes*10);
 
 }
 
-
-
-
-
-
-void remplirtableau()
+remplirtableau(char* PBm2)
 {
+
+
+  char* Pbm0 = concat(PBm2, "/0.pbm");
+  char* Pbm1 = concat(PBm2, "/1.pbm");
+  char* Pbm2 = concat(PBm2, "/2.pbm");
+  char* Pbm3 = concat(PBm2, "/3.pbm");
+  char* Pbm4 = concat(PBm2, "/4.pbm");
+  char* Pbm5 = concat(PBm2, "/5.pbm");
+  char* Pbm6 = concat(PBm2, "/6.pbm");
+  char* Pbm7 = concat(PBm2, "/7.pbm");
+  char* Pbm8 = concat(PBm2, "/8.pbm");
+  char* Pbm9 = concat(PBm2, "/9.pbm");
+  char* Pbmpoint = concat(PBm2, "/10.pbm");
 ///////////////////////////////////////////////////   NUMERO 0
 FILE* fichier0 = NULL;
-fichier0 = fopen("/home/bantoine/Images/0.pbm", "r") ;
+
+fichier0 = fopen(Pbm0, "r") ;
+
 int g =0;
 if (fichier0 != NULL){
+
 
   fseek(fichier0, 18, SEEK_SET);
 //  gotoxy(a,b);
@@ -559,32 +514,29 @@ if (fichier0 != NULL){
     caractere = fgetc(fichier0);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
    else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -597,7 +549,7 @@ if (fichier0 != NULL){
 //////////////////////////////////////////   NUMERO 1
   g++;
   FILE* fichier1 = NULL;
-  fichier1 = fopen("/home/bantoine/Images/1.pbm", "r") ;
+  fichier1 = fopen(Pbm1, "r") ;
   if (fichier1 != NULL){
 
     fseek(fichier1, 18, SEEK_SET);
@@ -608,32 +560,29 @@ if (fichier0 != NULL){
       caractere = fgetc(fichier1);
       if ( caractere == '0')
       {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
       }
      else if ( caractere == ' ')
       {
-        caractere = ' ';
-        tableau[g][j] = caractere;
+
+        tableau[g][j] = ' ';
         j++;
       }
       else if ( caractere == '1')
       {
-        caractere = 'X';
-        tableau[g][j] = caractere;
+
+        tableau[g][j] = 'X';
         j++;
       }
-      else if ( caractere == '\n')
+     else if ( caractere == '\n')
       {
-        caractere = ' ';
-        tableau[g][j] = caractere;
+
+        tableau[g][j] = ' ';
         j++;
 
       }
-
-
-
     }while(caractere != EOF);
   }
     else {
@@ -646,7 +595,7 @@ fclose(fichier1);
 
 g++;
 FILE* fichier2 = NULL;
-fichier2 = fopen("/home/bantoine/Images/2.pbm", "r") ;
+fichier2 = fopen(Pbm2, "r") ;
 if (fichier2 != NULL){
 
   fseek(fichier2, 18, SEEK_SET);
@@ -657,32 +606,29 @@ if (fichier2 != NULL){
     caractere = fgetc(fichier2);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -694,7 +640,7 @@ fclose(fichier2);
  ///////////////////////////////////////////////////// NUMERO 3
 g++;
  FILE* fichier3 = NULL;
- fichier3 = fopen("/home/bantoine/Images/3.pbm", "r") ;
+ fichier3 = fopen(Pbm3, "r") ;
  if (fichier3 != NULL){
 
    fseek(fichier3, 18, SEEK_SET);
@@ -705,31 +651,29 @@ g++;
      caractere = fgetc(fichier3);
      if ( caractere == '0')
      {
-     caractere = ' ';
-     tableau[g][j] = caractere;
+
+     tableau[g][j] = ' ';
      j++;
      }
     else if ( caractere == ' ')
      {
-       caractere = ' ';
-       tableau[g][j] = caractere;
+
+       tableau[g][j] = ' ';
        j++;
      }
      else if ( caractere == '1')
      {
-       caractere = 'X';
-       tableau[g][j] = caractere;
+
+       tableau[g][j] = 'X';
        j++;
      }
-     else if ( caractere == '\n')
+    else if ( caractere == '\n')
      {
-       caractere = ' ';
-       tableau[g][j] = caractere;
+
+       tableau[g][j] = ' ';
        j++;
 
      }
-
-
    }while(caractere != EOF);
  }
    else {
@@ -741,7 +685,7 @@ fclose(fichier3);
 ///////////////////////////////////////////////////////// NUMERO 4
 g++;
 FILE* fichier4 = NULL;
-fichier4 = fopen("/home/bantoine/Images/4.pbm", "r") ;
+fichier4 = fopen(Pbm4, "r") ;
 if (fichier4 != NULL){
 
   fseek(fichier4, 18, SEEK_SET);
@@ -752,32 +696,29 @@ if (fichier4 != NULL){
     caractere = fgetc(fichier4);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -790,7 +731,7 @@ fclose(fichier4);
 //////////////////////////////////////////////////////// NUMERO 5
 g++;
 FILE* fichier5 = NULL;
-fichier5 = fopen("/home/bantoine/Images/5.pbm", "r") ;
+fichier5 = fopen(Pbm5, "r") ;
 if (fichier5 != NULL){
 
   fseek(fichier5, 18, SEEK_SET);
@@ -801,31 +742,29 @@ if (fichier5 != NULL){
     caractere = fgetc(fichier5);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-    tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
   }while(caractere != EOF);
 }
   else {
@@ -837,7 +776,7 @@ fclose(fichier5);
 /////////////////////////////////////////// NUMERO 6
 g++;
 FILE* fichier6 = NULL;
-fichier6 = fopen("/home/bantoine/Images/6.pbm", "r") ;
+fichier6 = fopen(Pbm6, "r") ;
 if (fichier6 != NULL){
 
   fseek(fichier6, 18, SEEK_SET);
@@ -848,31 +787,24 @@ if (fichier6 != NULL){
     caractere = fgetc(fichier6);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+      tableau[g][j] = ' ';
       j++;
-
     }
-
-
   }while(caractere != EOF);
 }
   else {
@@ -885,7 +817,7 @@ fclose(fichier6);
 //////////////////////////////////////////////// Numero 7
 g++;
 FILE* fichier7 = NULL;
-fichier7 = fopen("/home/bantoine/Images/7.pbm", "r") ;
+fichier7 = fopen(Pbm7, "r") ;
 if (fichier7 != NULL){
 
   fseek(fichier7, 18, SEEK_SET);
@@ -896,32 +828,29 @@ if (fichier7 != NULL){
     caractere = fgetc(fichier7);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -933,7 +862,7 @@ fclose(fichier7);
 ///////////////////////////////////////////////////////// NUMERO 8
 g++;
 FILE* fichier8 = NULL;
-fichier8 = fopen("/home/bantoine/Images/8.pbm", "r") ;
+fichier8 = fopen(Pbm8, "r") ;
 if (fichier8 != NULL){
 
   fseek(fichier8, 18, SEEK_SET);
@@ -944,32 +873,29 @@ if (fichier8 != NULL){
     caractere = fgetc(fichier8);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -980,10 +906,9 @@ if (fichier8 != NULL){
 fclose(fichier8);
 ////////////////////////////////////////////// NUMERO 9
 
-
 g++;
 FILE* fichier9 = NULL;
-fichier9 = fopen("/home/bantoine/Images/9.pbm", "r") ;
+fichier9 = fopen(Pbm9, "r") ;
 if (fichier9 != NULL){
 
   fseek(fichier9, 18, SEEK_SET);
@@ -994,32 +919,29 @@ if (fichier9 != NULL){
     caractere = fgetc(fichier9);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
    else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
@@ -1032,7 +954,7 @@ fclose(fichier9);
 
 g = 10;
 FILE* fichier10 = NULL;
-fichier10 = fopen("/home/bantoine/Images/11.pbm", "r") ;
+fichier10 = fopen(Pbmpoint, "r") ;
 if (fichier10 != NULL){
 
   fseek(fichier10, 18, SEEK_SET);
@@ -1043,32 +965,29 @@ if (fichier10 != NULL){
     caractere = fgetc(fichier10);
     if ( caractere == '0')
     {
-    caractere = ' ';
-    tableau[g][j] = caractere;
+
+    tableau[g][j] = ' ';
     j++;
     }
    else if ( caractere == ' ')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
     }
     else if ( caractere == '1')
     {
-      caractere = 'X';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = 'X';
       j++;
     }
-    else if ( caractere == '\n')
+   else if ( caractere == '\n')
     {
-      caractere = ' ';
-      tableau[g][j] = caractere;
+
+      tableau[g][j] = ' ';
       j++;
 
     }
-
-
-
   }while(caractere != EOF);
 }
   else {
