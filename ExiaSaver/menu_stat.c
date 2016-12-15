@@ -1,9 +1,9 @@
 /* ************************************************************************** */
-/*                               __       __ __	  _____                       */
-/*                              |    \  /   |    |     |                      */
-/*       menu_stat.c            |__   \/    |    |_____|                      */
-/*                              |     /\    |    |     |                      */
-/*                              |__  /  \ __|__  |     |                      */
+/*                               ___      __ __	  ____                        */
+/*                              |    \  /   |    |    |                       */
+/*       menu_stat.c            |__   \/    |    |____|                       */
+/*                              |     /\    |    |    |                       */
+/*                              |___ /  \ __|__  |    |                       */
 /*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
 /*       Created: 2016/12/13 by FlorianXeifer                                 */
@@ -20,7 +20,12 @@ int menu_stat(int argc, char *argv[])
 {
 
   FILE *f;
-  int nombre1=0;
+  /*double result1;
+  double result2;
+  int result3 = 0;*/
+  float nombre1=0;
+  float nombre2=0;
+  float nombre3=0;
   int imagenum;
   char line[2000];
   int ret2;
@@ -66,7 +71,7 @@ int menu_stat(int argc, char *argv[])
           return EXIT_FAILURE;
 
 
-          int allLignes = 0;               //
+          float allLignes;               //
           while ((ret2 = getc(f)) != EOF){ //Attribue le nombre de ligne du fichier a la variable allLignes
             if (ret2 == '\n')              //
                 ++allLignes;               //
@@ -91,15 +96,33 @@ int menu_stat(int argc, char *argv[])
 
               for (i = 0 ; i < allLignes ; i++)         //
               {                                         //Lit le fichier ligne par ligne et remplis le tableau
-                printf("i%d=", i);
+                //printf("i%d=", i);
                 fscanf(f, "%i", &all[i]);               //
-                printf("%d ", all[i]);
-                printf(" %d \n", nombre1);
+                //printf("%d ", all[i]);
+                //printf(" %d \n", nombre1);
                 if (all[i] == 1){nombre1++;}
+                if (all[i] == 2){nombre2++;}
+                if (all[i] == 3){nombre3++;}
 
               }
-              printf("Nombre de 1 : %d ", nombre1);                          //
-                printf("\n");                           //
+              printf("Mode static se lance %.0f fois \n", nombre1);
+              printf("Mode dynamique se lance %.0f fois \n", nombre2);
+              printf("Mode interactive se lance %.0f fois \n", nombre3);
+
+
+              float result1 = nombre1/allLignes*100;//nombre1+allLignes/100;
+              printf("Mode static à %.0f%% de probabiliter  ", result1);
+                                //
+                printf("\n");
+
+                float result2 = nombre2/allLignes*100;//nombre1+allLignes/100;
+                printf("Mode dynamique à %.0f%% de probabiliter  ", result2);                      //
+                  printf("\n");
+
+                  float result3 = nombre3/allLignes*100;//nombre1+allLignes/100;
+                  printf("Mode interactive à %.0f%% de probabiliter  ", result3);                      //
+                    printf("\n");
+                                        //
 
               printf("Les nombre sont :\n");
               for (i = 0 ; i < allLignes ; i++)         //

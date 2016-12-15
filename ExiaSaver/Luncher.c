@@ -1,16 +1,14 @@
 /* ************************************************************************** */
-/*                               ___      __ __	  ____                        */
-/*                              |    \  /   |    |    |                       */
-/*       Launcher.c             |__   \/    |    |____|                       */
-/*                              |     /\    |    |    |                       */
-/*                              |___ /  \ __|__  |    |                       */
-/*       By: FlorianXeifer <florian.pfeifer@viacesi.fr>                       */
 /*                                                                            */
-/*       Created: 2016/12/08 by FlorianXeifer                                 */
-/*       Updated: 2016/12/14 by FlorianXeifer                                 */
+/*                                                                            */
+/*   Launcher.c                                      __       __ __	          */
+/*                                                  |    \  /   |       /\    */
+/*   By: FlorianXeifer <florian.pfeifer@viacesi.fr> |__   \/    |      /  \   */
+/*                                                  |     /\    |     /____\  */
+/*   Created: 2016/12/08 by FlorianXeifer           |__  /  \ __|__  /      \ */
+/*   Updated: 2016/12/14 by FlorianXeifer                                     */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -26,11 +24,11 @@
 int main(int argc, char *argv[]){
 
 
-  const char *HOME = "EXIASAVER_HOME";                       //Création des string contenant les variables d'environnement pour les exécutable avec la fonction concat.c
+  const char *HOME = "EXIASAVER_HOME";                       //
   char *Home;                                                //
-  Home = getenv(HOME);                                       //     Pour créer les variables d'environnement aller dans la console, passer en root tapez ce qui suit:
-  char* Mode_static = concat(Home, "/mode_static");          //           export leNomDeLaVariable=unevaleur ; puis export leNomDeLaVariable=leCheminDuDossier ;
-  char* Mode_dynamique = concat(Home, "/mode_dynamique");    //   puis echo 'export leNomDeLaVariable=leCheminDuDossier' >> /home/user/.bashrc pour la rendre permanente!
+  Home = getenv(HOME);                                       //  Création des variables d'environnement pour les exécutable
+  char* Mode_static = concat(Home, "/mode_static");          //
+  char* Mode_dynamique = concat(Home, "/mode_dynamique");    //
   char* Mode_interactive = concat(Home, "/mode_interactive");//
 
 
