@@ -36,6 +36,7 @@ int main(int argc, char *argv[]){
   int number;
   int nombre=0;
   int repeat=0;
+
   if(argc < 2)                       //Si le nombre de caractère est inférieure a 2
   {
 
@@ -56,7 +57,7 @@ int main(int argc, char *argv[]){
 
     //system("./type_statique");
     execl(Mode_static,"type_statique",(char *)NULL);
-      
+
 
       //printf("1");
     break;
@@ -84,7 +85,7 @@ else if(argc == 2)                     //Si le nombre d'arguments est égale a 2
       {
       menu_stat(argc, argv);           //Ouvre la fonction qui contient le menu de statistique
       }
-      else                             //Si l'argument n'est pas reconue
+      else                             //Si l'argument n'est pas reconnu
       {
       printf("Obtion not found\n");
 

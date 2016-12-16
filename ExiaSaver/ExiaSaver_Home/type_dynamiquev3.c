@@ -52,15 +52,21 @@ while(u == 1){  // boucle infinie
   int x = 18;   // position initiale du curseur quand on affiche que l'écran va s'actualiser
   int y = 15;
 
+  int debut =0;
+  int fin = 6;
+  int nbfois = 0;
+
   decouperheures(instant);  // affecte aux valeurs précédemment citées les valeurs des dizaines d'heures etc
 
 
-///////////////////////////////////////PEMIERE LIGNE
+///////////////////////////////////////IMPRESSION DE L HEURE
 
+for ( nbfois = 0; nbfois < 5; nbfois++)
+{
 ////////////////////////////////// DIZAINES HEURES
 gotoxy(a,b);     // positionne le curseur dans le terminal
 
-        for (aa = 0; aa < 6 ; aa++) // on parcours les premiers caractères de l'image correspondant au
+        for (aa = debut; aa < fin ; aa++) // on parcours les premiers caractères de l'image correspondant au
         // chiffre des dizaine d'heures
         {
           printf("%c", tableau[dizaineheure][aa]); //on imprime les caractères
@@ -72,7 +78,7 @@ printf(" "); // on ajoute un espace pour espacer les chiffres
 ////////////////////////////////////// UNITES HEURES
 
 
-        for (aa = 0; aa < 6 ; aa++)
+        for (aa = debut; aa < fin ; aa++)
         {
           printf("%c", tableau[uniteheure][aa]);
         }
@@ -82,7 +88,7 @@ printf(" "); // on ajoute un espace pour espacer les chiffres
 
 /////////////////////////////////////////// DOUBLE POINT
 
-      for (aa = 0; aa < 6; aa++)
+      for (aa = debut; aa < fin; aa++)
       {
         printf("%c", tableau[10][aa]);
       }
@@ -91,320 +97,7 @@ printf(" "); // on ajoute un espace pour espacer les chiffres
 //////////////////////////////////////////// DIZAINE MINUTES
 
 
-  for (aa = 0; aa < 6 ; aa++)
-  {
-    printf("%c", tableau[dizaineminutes][aa]);
-  }
-
-printf(" ");
-/////////////////////////////////// UNITES MINUTES
-
-//if (uniteminutes == 0)
-///{
-  for (aa = 0; aa < 6 ; aa++)
-  {
-    printf("%c", tableau[uniteminutes][aa]);
-  }
-
-printf(" ");
-
-///////////////////////////////////////// DOUBLE POINT
-
-for (aa = 0; aa < 6; aa++)
-{
-  printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE secondes
-
-
-  for (aa = 0; aa < 6 ; aa++)
-  {
-    printf("%c", tableau[dizainesecondes][aa]);
-  }
-
-printf(" ");
-
-///////////////////////////////////////////////// UNITES SECONDES
-
-  for (aa = 0; aa < 6 ; aa++)
-  {
-    printf("%c", tableau[unitesecondes][aa]);
-  }
-printf(" ");
-
-
-//////////////////////////////////////////// DEUXIEME LIGNE
-
-
-///////////////////////////////////////////// DIZAINE HEURES
-//printf("\n");
-
-
-gotoxy(a+1,b);
-
-  for (aa = 6; aa < 12 ; aa++)
-  {
-    printf("%c", tableau[dizaineheure][aa]);
-  }
-
-printf(" ");
-
-
-////////////////////////////////////// UNITES HEURES
-
-  for (aa = 6; aa < 12 ; aa++)
-  {
-    printf("%c", tableau[uniteheure][aa]);
-  }
-
-printf(" ");
-
-/////////////////////////////////////////// DOUBLE POINT
-
-for (aa = 6; aa < 12; aa++)
-{
-  printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE MINUTES
-
-//if (dizaineminutes == 0)
-//{
-for (aa = 6; aa < 12 ; aa++)
-{
-printf("%c", tableau[dizaineminutes][aa]);
-}
-
-printf(" ");
-/////////////////////////////////// UNITES MINUTES
-
-//if (uniteminutes == 0)
-//
-for (aa = 6; aa < 12 ; aa++)
-{
-printf("%c", tableau[uniteminutes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////// DOUBLE POINT
-
-for (aa = 6; aa < 12; aa++)
-{
-printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE secondes
-
-for (aa = 6; aa < 12 ; aa++)
-{
-printf("%c", tableau[dizainesecondes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////////////// UNITES SECONDES
-
-for (aa = 6; aa < 12 ; aa++)
-{
-printf("%c", tableau[unitesecondes][aa]);
-}
-
-printf(" ");
-
-////////////////////////////////////////////////  TROISIEME LIGNE
-
-////////////////////////////////////////////////  DIZAINE HEURES
-gotoxy(a+2,b);
-
-  for (aa = 12; aa < 18 ; aa++)
-  {
-    printf("%c", tableau[dizaineheure][aa]);
-  }
-
-printf(" ");
-
-////////////////////////////////////// UNITES HEURES
-
-
-  for (aa = 12; aa < 18 ; aa++)
-  {
-    printf("%c", tableau[uniteheure][aa]);
-  }
-
-printf(" ");
-
-/////////////////////////////////////////// DOUBLE POINT
-
-for (aa = 12; aa < 18; aa++)
-{
-  printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE MINUTES
-
-for (aa = 12; aa < 18 ; aa++)
-{
-printf("%c", tableau[dizaineminutes][aa]);
-}
-
-printf(" ");
-/////////////////////////////////// UNITES MINUTES
-
-
-for (aa = 12; aa < 18 ; aa++)
-{
-printf("%c", tableau[uniteminutes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////// DOUBLE POINT
-
-for (aa = 12; aa < 18; aa++)
-{
-printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE secondes
-//fonction(int a;int b; int dizainesecondes);
-for (aa = 12; aa < 18 ; aa++)
-{
-printf("%c", tableau[dizainesecondes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////////////// UNITES SECONDES
-
-for (aa = 12; aa < 18 ; aa++)
-{
-printf("%c", tableau[unitesecondes][aa]);
-}
-
-printf(" ");
-
-////////////////////////////////////////// QUATRIEME LIGNE
-
-////////////////////////////////////////////// DIZAINE HEURES
-
-gotoxy(a+3,b);
-
-  for (aa = 18; aa < 24 ; aa++)
-  {
-    printf("%c", tableau[dizaineheure][aa]);
-  }
-
-printf(" ");
-
-
-////////////////////////////////////// UNITES HEURES
-
-
-  for (aa = 18; aa < 24 ; aa++)
-  {
-    printf("%c", tableau[uniteheure][aa]);
-  }
-printf(" ");
-
-/////////////////////////////////////////// DOUBLE POINT
-
-for (aa = 18; aa < 24 ; aa++)
-{
-  printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE MINUTES
-
-
-for (aa = 18; aa < 24 ; aa++)
-{
-printf("%c", tableau[dizaineminutes][aa]);
-}
-
-printf(" ");
-/////////////////////////////////// UNITES MINUTES
-
-
-for (aa = 18; aa < 24 ; aa++)
-{
-printf("%c", tableau[uniteminutes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////// DOUBLE POINT
-
-for (aa = 18; aa < 24 ; aa++)
-{
-printf("%c", tableau[10][aa]);
-}
-printf(" ");
-
-//////////////////////////////////////////// DIZAINE secondes
-
-
-for (aa = 18; aa < 24 ; aa++)
-{
-printf("%c", tableau[dizainesecondes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////////////// UNITES SECONDES
-
-
-
-for (aa = 18; aa < 24 ; aa++)
-{
-printf("%c", tableau[unitesecondes][aa]);
-}
-
-printf(" ");
-
-///////////////////////////////////////////// CINQUIEME LIGNE
-
-///////////////////////////////// DIZAINES HEURES
-
-
-gotoxy(a+4,b);
-
-        for (aa = 24; aa < 30 ; aa++)
-        {
-          printf("%c", tableau[dizaineheure][aa]);
-        }
-
-printf(" ");
-
-
-////////////////////////////////////// UNITES HEURES
-
-
-        for (aa = 24; aa < 30 ; aa++)
-        {
-          printf("%c", tableau[uniteheure][aa]);
-        }
-      printf(" ");
-
-/////////////////////////////////////////// DOUBLE POINT
-
-      for (aa = 24; aa < 30 ; aa++)
-      {
-        printf("%c", tableau[10][aa]);
-      }
-      printf(" ");
-
-//////////////////////////////////////////// DIZAINE MINUTES
-
-
-  for (aa = 24; aa < 30 ; aa++)
+  for (aa = debut; aa < fin ; aa++)
   {
     printf("%c", tableau[dizaineminutes][aa]);
   }
@@ -413,7 +106,7 @@ printf(" ");
 /////////////////////////////////// UNITES MINUTES
 
 
-  for (aa = 24; aa < 30 ; aa++)
+  for (aa = debut; aa < fin ; aa++)
   {
     printf("%c", tableau[uniteminutes][aa]);
   }
@@ -422,7 +115,7 @@ printf(" ");
 
 ///////////////////////////////////////// DOUBLE POINT
 
-for (aa = 24; aa < 30 ; aa++)
+for (aa = debut; aa < fin; aa++)
 {
   printf("%c", tableau[10][aa]);
 }
@@ -430,7 +123,8 @@ printf(" ");
 
 //////////////////////////////////////////// DIZAINE secondes
 
-  for (aa = 24; aa < 30 ; aa++)
+
+  for (aa = debut; aa < fin; aa++)
   {
     printf("%c", tableau[dizainesecondes][aa]);
   }
@@ -439,27 +133,31 @@ printf(" ");
 
 ///////////////////////////////////////////////// UNITES SECONDES
 
-
-for (aa = 24; aa < 30 ; aa++)
+  for (aa = debut; aa < fin; aa++)
   {
     printf("%c", tableau[unitesecondes][aa]);
   }
-
 printf(" ");
+
+debut = debut +6;
+fin = fin +6;
+a = a + 1;
+
+}
 
 
 ///////////////////////////////////////////////////////// FIN DE L IMPRESSION DE L HEURE
 
 const char *SLEEP = "EXIASAVER2_SLEEP"; // création du tableau de char contenant le nom de la variable d'envirronement
 char *Sleep;   // création du tableau de char qui va contenir le nom de la variable d'envirronement
-Sleep = getenv(SLEEP);
+Sleep = getenv(SLEEP); // récupère le contenu de la variable d'environnement EXIASAVER2_SLEEP et la stocke dans Sleep
 
 
 int e;   // compteur
-int refreshTime = 5;   // nombre de secondes entre chaque rafraichissement
+long refreshTime = atol(Sleep);   // nombre de secondes entre chaque rafraichissement  atol convertit le string Sleep en long int (les opticiens)
 gotoxy(x,y);            //  on place le curseur à cette position
 printf("Cet écran va s'actualiser dans quelques secondes" );
-printf("%s", Sleep);
+
 
 for (e = 0; e < refreshTime; e++)  // on imprime un point toutes les secondes
 {
@@ -510,6 +208,7 @@ remplirtableau(char* PBm2)
   char* Pbm8 = concat(PBm2, "/8.pbm");
   char* Pbm9 = concat(PBm2, "/9.pbm");
   char* Pbmpoint = concat(PBm2, "/10.pbm");
+  printf("Pbm0 %s", Pbm0);
 
 // complète le tableau à deux dimensions afin que les lignes contiennent les caracteres qui composent les chiffres
 ///////////////////////////////////////////////////   NUMERO 0

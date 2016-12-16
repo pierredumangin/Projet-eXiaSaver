@@ -20,6 +20,7 @@ int menu_stat(int argc, char *argv[])
 {
 
   FILE *f;
+
   /*double result1;
   double result2;
   int result3 = 0;*/
@@ -33,6 +34,7 @@ int menu_stat(int argc, char *argv[])
   float image5=0;
   float image6=0;
 
+  int choix3;
   int choix2;
   int imagenum;
   char line[5000];
@@ -108,6 +110,8 @@ scanf("%d", &choix);
           return EXIT_FAILURE;
 
 
+
+
           float allLignes;               //
           while ((ret2 = getc(f)) != EOF){ //Attribue le nombre de ligne du fichier a la variable allLignes
             if (ret2 == '\n')              //
@@ -142,6 +146,13 @@ printf("/* *********************************************************************
                 exit(0);                                //
               }
 
+              char** linetab=malloc (allLignes*sizeof(char*));
+              for (int i =0; i < allLignes; i++)
+              {
+                linetab[i]=malloc(500*sizeof(char));
+
+              }
+
               for (i = 0 ; i < allLignes-1 ; i++)         //
               {                                         //Lit le fichier ligne par ligne et remplis le tableau
                 //printf("i%d=", i);
@@ -151,7 +162,7 @@ printf("/* *********************************************************************
                 if (all[i] == 1){nombre1++;}
                 if (all[i] == 2){nombre2++;}
                 if (all[i] == 3){nombre3++;}
-
+sprintf(linetab[i], "%i | %i | %s", all[i], allimages[i], line);
                 if (allimages[i] == 1){image1++;}
                 if (allimages[i] == 2){image2++;}
                 if (allimages[i] == 3){image3++;}
@@ -159,8 +170,32 @@ printf("/* *********************************************************************
                 if (allimages[i] == 5){image5++;}
                 if (allimages[i] == 6){image6++;}
               }
-              scanf("%d", &choix2);
 
+              /*for(int i=0; i<allLignes-1; i++){
+                int x;
+                int y;
+                char txt[5000];
+                sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                if(x==1){printf("%s\n", linetab[i]);}
+              }
+              printf("\n");
+              for(int i=0; i<allLignes-1; i++){
+                int x;
+                int y;
+                char txt[5000];
+                sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                if(x==2){printf("%s\n", linetab[i]);}
+              }
+              printf("\n");
+              for(int i=0; i<allLignes-1; i++){
+                int x;
+                int y;
+                char txt[5000];
+                sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                if(x==3){printf("%s\n", linetab[i]);}
+              }*/
+
+                scanf("%d", &choix2);
           switch(choix2){
                     case 1:
 system("clear");
@@ -270,8 +305,12 @@ getchar();
         case 2:
 
 
+printf("1 non tri\n2 tri");
+scanf("%d", &choix3);
+ switch(choix3){
 
 
+   case 1:
               if ((f = fopen ("Historique.txt","r")) == NULL)
               return EXIT_FAILURE;
 
@@ -293,6 +332,83 @@ getchar();
 
                 printf("Le nombre d'èxécution est à %.0f\n", allLignes);
                 getchar();
+                break;
+
+                case 2:
+                if ((f = fopen ("Historique.txt","r")) == NULL)//ouverture du fichier Historique.txt
+                return EXIT_FAILURE;
+                                            float allLignes;
+                                            while ((ret2 = getc(f)) != EOF){ //Attribue le nombre de ligne du fichier a la variable allLignes
+                                              if (ret2 == '\n')              //
+                                                  ++allLignes;               //
+                                                }
+
+                                                rewind(f);
+
+                                            int* all = NULL;                          //
+                                            all = malloc(allLignes * sizeof(int));    //Attribue la valeur de allLignes a all en taille de tableau dynamique
+
+                                            if (all == NULL)                          //
+                                            {                                         //Renvoi une erreur si la taille du tableau n'est pas allouer
+                                              printf("Fatal error!!");                //
+                                              exit(0);                                //
+                                            }
+
+                                            int* allimages = NULL;
+                                            allimages = malloc(allLignes * sizeof(int));
+
+                                            if (allimages == NULL)                          //
+                                            {                                         //Renvoi une erreur si la taille du tableau n'est pas allouer
+                                              printf("Fatal error!!");                //
+                                              exit(0);                                //
+                                            }
+
+                                            char** linetab=malloc (allLignes*sizeof(char*));
+                                            for (int i =0; i < allLignes; i++)
+                                            {
+                                              linetab[i]=malloc(500*sizeof(char));
+
+                                            }
+
+                                            for (i = 0 ; i < allLignes-1 ; i++)         //
+                                            {                                         //Lit le fichier ligne par ligne et remplis le tableau
+                                              //printf("i%d=", i);
+                                              fscanf(f, "%i | %i | %24c", &all[i], &allimages[i], line);               //
+                                              //printf("%d ", all[i]);
+                                              //printf(" %d \n", nombre1);
+                                              if (all[i] == 1){nombre1++;}
+                                              if (all[i] == 2){nombre2++;}
+                                              if (all[i] == 3){nombre3++;}
+                                          sprintf(linetab[i], "%i | %i | %s", all[i], allimages[i], line);
+
+                                            }
+
+                                            for(int i=0; i<allLignes-1; i++){
+                                              int x;
+                                              int y;
+                                              char txt[5000];
+                                              sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                                              if(x==1){printf("%s\n", linetab[i]);}
+                                            }
+                                            printf("\n");
+                                            for(int i=0; i<allLignes-1; i++){
+                                              int x;
+                                              int y;
+                                              char txt[5000];
+                                              sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                                              if(x==2){printf("%s\n", linetab[i]);}
+                                            }
+                                            printf("\n");
+                                            for(int i=0; i<allLignes-1; i++){
+                                              int x;
+                                              int y;
+                                              char txt[5000];
+                                              sscanf(linetab[i], "%i | %i | %s", &x, &y, txt);
+                                              if(x==3){printf("%s\n", linetab[i]);}
+                                            }
+
+                              break;
+              }
         break;
 
         case 3:
