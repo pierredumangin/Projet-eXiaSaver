@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <sys/ioctl.h>
+
 
 #define gotoxy(x,y)printf("\033[%d;%dH",(x),(y))
 
@@ -15,7 +17,11 @@ char caractere;
 int nbCaracteres;
 int marge,margeH;
 int i = 0, c = 0, t = 0, nb = 0;
+    
 
+
+	struct winsize w;
+	ioctl(0, TIOCGWINSZ, &w);
 
 if (fichier != NULL) { //SI L'IMAGE EST BIEN RECUE
 		fseek (fichier, 3, SEEK_SET);//SKIP LES PREMIER CARACTERE
@@ -23,9 +29,9 @@ if (fichier != NULL) { //SI L'IMAGE EST BIEN RECUE
 		fscanf(fichier, "%d %d", &taile[0], &taile[1]);// RECUPERATION DES PARAMETRES DE L'IMAGE				
    		nbCaracteres = taile[0]*taile[1];//CALCULE DU NOMBRE TOTAL DE CARACTERE
 
-		marge = (80 - taile[1])/2;//CALCULE DU CENTRAGE HORIZONTALE		
+		marge = (w.ws_col - taile[1])/2;//CALCULE DU CENTRAGE HORIZONTALE		
 
-		margeH = (24 - taile[0])/2;//CALCULE DU CENTRAGE VERTICALE
+		margeH = (w.ws_row - taile[0])/2;//CALCULE DU CENTRAGE VERTICALE
 		
 		for(t=0;t<margeH-1;t++){printf(" \n");}//CENTRAGE VERTICALE
 		
